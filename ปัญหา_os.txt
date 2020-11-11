@@ -1,0 +1,7 @@
+#python wake up sleeping thread
+https://www.programiz.com/python-programming/time/sleep
+แก้ปัญหา 
+	lock		ใช้ share resource lock ทำให้เกิด context switch
+	taking turn	เกิด busy waitting
+	interrupt	kernal mode
+	

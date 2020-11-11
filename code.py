@@ -1,7 +1,4 @@
-#############################   Credit  #############################
-#########################   writed by Art   #########################
-##################    email sanayut12@gmail.com   ###################
-####################    date writed 10/24/2020  #####################
+#class file  circular buffer
 
 #size of buffer
 buffer_size = 1000
@@ -57,8 +54,52 @@ class circular_buffer:
                 number += 1
         #print("number in buffer : ",number)
         return number
-##how to use!###
-#from circular_buffer_module import circular_buffer
-#a = circular_buffer() #begin function
-#a.add_item(50)# 50 is items
-#result = a.remove_item() # has return value
+
+
+# file test class circular buffer
+
+import threading
+from circular_buffer_module import circular_buffer
+a = circular_buffer()
+
+def add_i(name):
+    for i in range(200):
+        print(i)
+        a.add_item(str(name)+":"+str(i))
+
+def remove(name):
+    while a.number_items() > 0: 
+        print("thread name:"+str(name)+" = "+str(a.remove_item()))
+
+a1 = threading.Thread(target=add_i,args=(1,))
+a2 = threading.Thread(target=add_i,args=(2,))
+a3 = threading.Thread(target=add_i,args=(3,))
+a4 = threading.Thread(target=add_i,args=(4,))
+a5 = threading.Thread(target=add_i,args=(5,))
+
+t1 = threading.Thread(target=remove,args=(1,))
+t2 = threading.Thread(target=remove,args=(2,))
+t3 = threading.Thread(target=remove,args=(3,))
+t4 = threading.Thread(target=remove,args=(4,))
+t5 = threading.Thread(target=remove,args=(5,))
+print(type(a1))
+
+
+th = [a1,a2,a3,a4,a5]
+
+# print(th)
+# th[0].start()
+
+a1.start()
+a2.start()
+a3.start()
+a4.start()
+a5.start()
+
+t1.start()
+t2.start()
+t3.start()
+t4.start()
+t5.start()
+
+    
