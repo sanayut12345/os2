@@ -1,7 +1,7 @@
 import threading
 from circular_buffer_module import circular_buffer
 a = circular_buffer()
-x = 0
+
 def add_i(name):
     for i in range(200):
         print(i)
@@ -9,8 +9,7 @@ def add_i(name):
 
 def remove(name):
     while a.number_items() > 0: 
-        print("thread name:"+str(name)+" = "+str(a.remove_item()))
-        x = x+1
+        print("thread name:"+str(name)+" = "+str(a.remove_item() )
 
 a1 = threading.Thread(target=add_i,args=(1,))
 a2 = threading.Thread(target=add_i,args=(2,))
