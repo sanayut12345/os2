@@ -8,14 +8,14 @@ class circular_buffer:
     def __init__(self,buffer_size):
         self.top = 0        #top of circular buffer
         self.botton  = 0    #botton of circular buffer
-        self.buffer = []    #init buffer
+        
         self.buffer_size = buffer_size   #size of buffer
-        for i in range(self.buffer_size):    #set size of buffer by append item in array becouse python not set of size array or list
-           self.buffer.append(None)     #add items into array
+
+        self.buffer = [' '] * buffer_size   #init buffer
 
     # focus
     def add_item(self,item):    #methode >>use add item into buffer
-        if self.buffer[self.botton] == None:
+        if self.buffer[self.botton] == ' ':
             self.buffer[self.botton] = item
             self.botton += 1
             if self.botton >= self.buffer_size:         #if buffer overflow   
@@ -25,7 +25,7 @@ class circular_buffer:
             return None
 
     def remove_item(self):
-        if self.buffer[self.top]  != None:
+        if self.buffer[self.top]  != ' ':
             data = self.buffer[self.top] 
             self.buffer[self.top] = None
             self.top += 1
@@ -53,7 +53,7 @@ class circular_buffer:
         number = 0
         for i in range(len(self.buffer)):
             i = self.buffer[i]
-            if i != None:
+            if i != ' ':
                 number += 1
         #print("number in buffer : ",number)
         return number
