@@ -1,7 +1,8 @@
 import threading
 from circular_buffer_module import circular_buffer
 a = circular_buffer(1000)
-
+# threading.Event.wait
+# threading.Event.set
 def add_i(name):
     for i in range(200):
         print(i)

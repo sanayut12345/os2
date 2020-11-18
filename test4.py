@@ -21,11 +21,11 @@ buff = []
 
 def fun(n):
     global x
-    global buff
+    #global buff
     con = 0
     while True:
         
-        if x >= 1000:
+        if x >= 100:
             sem.acquire()
             buff.append(con)
             sem.release()

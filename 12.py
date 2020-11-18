@@ -2,11 +2,11 @@ from circular_buffer_module import circular_buffer
 from threading import Thread
 from time import sleep,time
 
-
 number_productor = 5
 number_consumer = 5
 buffer_size = 100
 request_number = 1000
+
 lock = 0
 buffer = circular_buffer(buffer_size)
 
